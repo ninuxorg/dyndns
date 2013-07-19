@@ -1,0 +1,6 @@
+<!ELEMENT dyndns (user*)>
+<!ELEMENT user (name,password,comment?,hostname+)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT password (#PCDATA)>
+<!ELEMENT comment (#PCDATA)>
+<!ELEMENT hostname (#PCDATA)>

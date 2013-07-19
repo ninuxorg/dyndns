@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE dyndns SYSTEM "dyndns.dtd">
+<dyndns>
+	<user>
+		<name>example_user</name>
+		<password>example_password</password>
+		<comment>example_comment</comment>
+		<hostname>example_hostname(to be updated)</hostname>
+	</user>
+</dyndns>
+
