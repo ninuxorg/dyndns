@@ -219,7 +219,7 @@ class LoginHandler (StreamRequestHandler):
 		
 		#stateful protocol
 		serverstatus=0
-		while(serverstatus<3):
+		while(serverstatus<4):
 			cmd=self.rfile.readline().rstrip()
 			if serverstatus==0:
 				user=cmd
@@ -235,13 +235,24 @@ class LoginHandler (StreamRequestHandler):
 				host=cmd
 				pos=True
 				msg="Hostname "+host+" supplied"
-				serverstatus=3
+				if ':static' in host:
+					host=host.split(':')[0]
+					msg += ". Request for static IP setting received, hostname corrected in "+host+". Please supply IP"
+					serverstatus=3
+				else:
+					serverstatus=4
+			elif serverstatus==3:
+				ip=cmd
+				pos=True
+				msg="IP "+ip+" supplied"
+				serverstatus=4
 			self.outm(pos, msg)
 		
 		#We should have an username, a password and a hostname
 		self.user=user
 		self.passw=passw
 		self.host=host
+		self.ip=ip
 
 		#check the login and do dyndns stuff
 		if self.checklogin():
