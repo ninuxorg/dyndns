@@ -1,4 +1,5 @@
 #!/bin/bash
+# you may need to use "nsupdate -k /etc/bind/rndc.key <<-EOF" if you use authentication
 nsupdate  <<-EOF
        server 127.0.0.1
        update  delete $2.ninux.org. A
