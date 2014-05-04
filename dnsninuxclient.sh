@@ -1,11 +1,16 @@
 #!/bin/bash
 # netcat is required to run this script
 
-USERNAME=pippo
-PASSWORD=pippo
-HOSTNAME=testmachie
-ADDRESS=localhost
-PORT=8078
+if [ -f /etc/default/dyndns-ninux-client ]
+ then
+  . /etc/default/dyndns-ninux-client 
+ else
+  USERNAME=pippo
+  PASSWORD=pippo
+  HOSTNAME=testmachie
+  ADDRESS=localhost
+  PORT=8078
+fi
 
 connect() {
 	echo -e "$USERNAME\n$PASSWORD\n$HOSTNAME" | nc $ADDRESS $PORT > /tmp/dnsninuxclient
