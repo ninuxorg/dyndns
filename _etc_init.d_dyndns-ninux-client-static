@@ -1,0 +1,52 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          dyndns-ninux-client-static
+# Required-Start:    
+# Required-Stop:     $network $remote_fs networking
+# Default-Start:     0 1 6
+# Default-Stop:      
+# Short-Description: updates the Ninux dyndns server with a static IP.
+### END INIT INFO
+
+PATH=/bin:/usr/bin
+
+. /lib/lsb/init-functions
+
+do_start () {
+	log_action_msg "Updating Ninux dyndns server with static IP"
+	dnsninuxclient-static.sh && exit 0 || exit $?
+}
+
+do_stop () {
+	log_action_msg "Bye bye!"
+}
+
+do_test () {
+	# Include dyndns-ninux-client defaults if available
+	if [ -f /etc/default/dyndns-ninux-client ] ; then
+		. /etc/default/dyndns-ninux-client
+	fi
+	IP_FROM_DNS=$(host $FULLNAME | awk '{print $(NF)}')
+	log_action_msg "DNS lookup for $FULLNAME gives IP $IP_FROM_DNS"
+	exit 0
+}
+
+case "$1" in
+  start)
+	do_start
+	;;
+  restart|reload|force-reload)
+	echo "Error: argument '$1' not supported" >&2
+	exit 3
+	;;
+  stop)
+ 	do_stop
+	;;
+  test)
+	do_test
+	;;
+  *)
+	echo "Usage: $0 start|stop|test" >&2
+	exit 3
+	;;
+esac
