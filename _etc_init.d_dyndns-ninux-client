@@ -2,9 +2,9 @@
 ### BEGIN INIT INFO
 # Provides:          dyndns-ninux-client
 # Required-Start:    $all
-# Required-Stop:     $network $remote_fs networking
+# Required-Stop:     
 # Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
+# Default-Stop:      
 # Short-Description: updates the Ninux dyndns server with the current IP.
 ### END INIT INFO
 

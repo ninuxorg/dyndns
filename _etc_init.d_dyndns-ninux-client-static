@@ -1,8 +1,8 @@
 #! /bin/sh
 ### BEGIN INIT INFO
 # Provides:          dyndns-ninux-client-static
-# Required-Start:    
-# Required-Stop:     $network $remote_fs networking
+# Required-Start:    $network $remote_fs networking
+# Required-Stop:     
 # Default-Start:     0 1 6
 # Default-Stop:      
 # Short-Description: updates the Ninux dyndns server with a static IP.
