@@ -245,6 +245,7 @@ class LoginHandler (StreamRequestHandler):
 				ip=cmd
 				pos=True
 				msg="IP "+ip+" supplied"
+				self.ip=ip
 				serverstatus=4
 			self.outm(pos, msg)
 		
@@ -252,7 +253,6 @@ class LoginHandler (StreamRequestHandler):
 		self.user=user
 		self.passw=passw
 		self.host=host
-		self.ip=ip
 
 		#check the login and do dyndns stuff
 		if self.checklogin():
