@@ -1,19 +1,22 @@
 #!/bin/bash
 # netcat is required to run this script
+# to ask the server to wait for an explicit IP address, add ":static" string in the hostname string
 
 if [ -f /etc/default/dyndns-ninux-client ]
- then
-  . /etc/default/dyndns-ninux-client 
+ then 
+  . /etc/default/dyndns-ninux-client
+  HOSTNAME+=:static
  else
   USERNAME=pippo
   PASSWORD=pippo
-  HOSTNAME=testmachie
+  HOSTNAME=testmachie:static
   ADDRESS=localhost
+  IP=1.2.3.4
   PORT=8078
 fi
 
 connect() {
-	echo -e "$USERNAME\n$PASSWORD\n$HOSTNAME" | nc $ADDRESS $PORT > /tmp/dnsninuxclient
+	echo -e "$USERNAME\n$PASSWORD\n$HOSTNAME\n$IP" | nc $ADDRESS $PORT > /tmp/dnsninuxclient
         cat /tmp/dnsninuxclient	
 }
 

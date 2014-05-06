@@ -1,0 +1,20 @@
+# Defaults for the dyndns-ninux-client initscript
+
+# Set username
+USERNAME=ilario
+
+# Set password
+PASSWORD=VeronaFirenze
+
+# Set hostname
+HOSTNAME=ilario.verona
+FULLNAME=ilario.verona.ninux.org
+
+# Set the static IP to be used when dyndns-ninux-client is stopped
+IP=207.97.227.245
+
+# Set the dyndns server
+ADDRESS=dyndns.ninux.org
+
+# Set the port on the server
+PORT=8078

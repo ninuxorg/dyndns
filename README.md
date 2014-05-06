@@ -1,3 +1,6 @@
 - copy scriptaggiornaip4 into /bin/ directory
-- rename dyndns.xml.example in dyndns.xml and add users there.
-- run dnsninuxserver.py
+- copy dyndns.dtd and dyndns.xml.example into /usr/local/dyndnsninux/
+- rename dyndns.xml.example in dyndns.xml and add users there
+- run python dnsninuxserver.py on server
+- modify dnsninuxclient.sh or dnsninuxclient-static.sh
+- run ./dnsninuxclient.sh or dnsninuxclient-static.sh on client
