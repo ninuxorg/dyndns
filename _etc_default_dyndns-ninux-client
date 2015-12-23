@@ -1,16 +1,16 @@
 # Defaults for the dyndns-ninux-client initscript
 
 # Set username
-USERNAME=ilario
+USERNAME=tuonomeutente
 
 # Set password
-PASSWORD=VeronaFirenze
+PASSWORD=TuaPasswordSuQuestoServer
 
 # Set hostname
-HOSTNAME=ilario.verona
-FULLNAME=ilario.verona.ninux.org
+HOSTNAME=nomedelserver.nomedellisola
+FULLNAME=nomedelserver.nomedellisola.ninux.org
 
-# Set the static IP to be used when dyndns-ninux-client is stopped
+# If you want to set a static IP different from the one you're connecting from, set it here
 IP=207.97.227.245
 
 # Set the dyndns server
